@@ -32,3 +32,10 @@ coeftest(ols, vcov = vcovHAC)
 # vehipc            1.4079470  1.8109463  0.7775 0.4376168
 # factor(year)2009 -0.3787601  0.0695324 -5.4472 1.219e-07 ***
 # factor(year)2010 -0.3509959  0.1038244 -3.3807 0.0008384 ***
+
+set.seed(101)
+x = rep(c(-1,1), 50)
+u = rnorm(100)
+y = 1 + x + u
+library(lmtest)
+dwtest(y ~ x)
